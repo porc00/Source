@@ -1,0 +1,14 @@
+development:
+  sessions:
+    default:
+      database: curso-rails
+      hosts:
+        - localhost:27017
+production:
+  sessions:
+    default:
+      database: CursoRails
+      username: vitor
+      password: fabdc08093c145684238e5c997a952d3
+      hosts:
+        - dharma.mongohq.com:10036
