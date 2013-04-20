@@ -9,6 +9,6 @@ production:
     default:
       database: CursoRails
       username: vitor
-      password: fabdc08093c145684238e5c997a952d3
+      password: vitor
       hosts:
         - dharma.mongohq.com:10036
