@@ -2,8 +2,10 @@
 
 one:
   title: MyString
-  text: MyString
+  content: MyText
+  hits: 1
 
 two:
   title: MyString
-  text: MyString
+  content: MyText
+  hits: 1

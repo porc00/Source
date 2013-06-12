@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CursoRails::Application.load_tasks
+RailsNaPraiaDuvidas::Application.load_tasks

@@ -2,10 +2,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-	@questions = Question.all
-	
-	
-	
+    @questions = Question.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
@@ -16,7 +14,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-
+    @question.hit
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @question }
@@ -43,10 +41,8 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
-
-	@question.user_id = session[:user_id]
-   
-   respond_to do |format|	
+    @question.user = current_user
+    respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
@@ -84,4 +80,18 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def votes_count()
+    json = []
+    
+    questions = Question.all
+    questions.each do |q|
+      json.push({"id" => q.id.to_s , "votes" => q.votes}) 
+
+
+    end
+
+      render :layout => nil , :json => json
+  end
+
 end
